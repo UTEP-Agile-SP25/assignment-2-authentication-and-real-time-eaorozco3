@@ -4,7 +4,8 @@ module.exports = {
     mode: 'development',
     entry: {
         index: './src/index.js',
-        auth: './src/auth.js'
+        auth: './src/auth.js',
+        config: './src/firebase.js'
     },
 
     output: {
