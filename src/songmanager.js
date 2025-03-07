@@ -6,6 +6,7 @@ import {
   getDocs,
   collection,
   deleteDoc,
+  onSnapshot,
 } from "firebase/firestore";
 import { db } from "./firebase";
 
@@ -88,6 +89,26 @@ removeForm.addEventListener("submit", (event) => {
   event.preventDefault();
   removeSong();
   getSongs();
+});
+
+const songCollection = collection(db, "Songs");
+onSnapshot(songCollection, (snapshot) => {
+  const tableBody = document.getElementById("table-body");
+  tableBody.innerHTML = " ";
+
+  snapshot.forEach((doc) => {
+    const data = doc.data();
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+        <td> ${data.Title} </td> <td></td><td></td><td></td>
+        <td> ${data.Author} </td> <td></td><td></td><td></td>
+        <td> ${data.Year} </td> <td></td><td></td><td></td>
+        <td> ${data.Rating} </td> <td></td><td></td><td></td>
+    `;
+
+    tableBody.appendChild(row);
+  });
 });
 
 getSongs();
