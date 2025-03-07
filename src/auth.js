@@ -42,7 +42,7 @@ export async function signUp(firstName, lastName, email, password) {
     );
     console.log("User was given the following id:", userCredential.user.uid);
 
-    const userRef = doc(db, "Users", userCredential.user.uid);
+    const userRef = doc(db, "Users", userCredential.user.email);
     await setDoc(userRef, {
       FirstName: firstName,
       LastName: lastName,
