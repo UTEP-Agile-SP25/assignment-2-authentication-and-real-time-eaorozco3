@@ -16,14 +16,14 @@ async function fetchUserData(userID) {
     document.getElementById("introGreeting").innerHTML =
       "<h1> Welcome " + userData.FirstName + " to Song Connosseiur!</h1>";
   } catch (error) {
-    console.log(Error);
+    //console.log(Error);
   }
 }
 
 onAuthStateChanged(auth, async (user) => {
   if (user) {
     console.log("Logged in user: ", user.email);
-    await fetchUserData(user.uid);
+    await fetchUserData(user.email);
   } else {
     console.log("No user signed in.");
   }
