@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
-    <body>
-        <h1>Song Connoisseur:</h1>
-        <h2>Add Song:</h2>
-        <form id = "enterSongInfo">
-            <input type = "text" id = "songName" placeholder = "Enter song name:" ><br><br>
-            <input type = "text" id = "artistName" placeholder = "Enter artist name:" ><br><br>
-            <input type = "text" id = "releaseYear" placeholder = "Enter release year:" ><br><br>
-            <input type = "text" id = "ratingValue" placeholder = "Enter personal rating:" ><br><br>
-            <input type = "submit" value = "Save Song">
-        </form>
-        <form id = "removeSong">
-            <br><br>
-            <h2>Remove Song:</h2>
-            <input type = "text" id = "songNameToRemove" placeholder = "Enter song name:" ><br><br>
-            <input type = "submit" value = "Remove Song">
-        </form>
-        <form id = "modifySong">
-            <br><br>
-            <h2>Modify Rating:</h2>
-            <input type = "text" id = "songNameToModify" placeholder = "Enter song name:" ><br><br>
-            <input type = "text" id = "newRating" placeholder = "Enter updated rating:" ><br><br>
-            <input type = "submit" value = "Modify Rating">
-        </form>
-    </body>
-    <script src = "bundle.js"></script>
+  <head></head>
+  <body>
+    <h1 id="introGreeting">Song Connoisseur:</h1>
+    <h2>Add Song:</h2>
+    <form id="enterSongInfo">
+      <input
+        type="text"
+        id="songName"
+        placeholder="Enter song name:"
+      /><br /><br />
+      <input
+        type="text"
+        id="artistName"
+        placeholder="Enter artist name:"
+      /><br /><br />
+      <input
+        type="text"
+        id="releaseYear"
+        placeholder="Enter release year:"
+      /><br /><br />
+      <input
+        type="text"
+        id="ratingValue"
+        placeholder="Enter personal rating:"
+      /><br /><br />
+      <input type="submit" value="Save Song" />
+    </form>
+    <form id="removeSong">
+      <br /><br />
+      <h2>Remove Song:</h2>
+      <input
+        type="text"
+        id="songNameToRemove"
+        placeholder="Enter song name:"
+      /><br /><br />
+      <input type="submit" value="Remove Song" />
+    </form>
+  </body>
+  <script src="songmanager.bundle.js"></script>
 </html>

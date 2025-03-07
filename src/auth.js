@@ -1,7 +1,31 @@
 import { auth } from "./firebase.js";
 import { db } from "./firebase.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+
+async function fetchUserData(userID) {
+    try {
+       const userDoc = await getDocs(collection(db, "Users"))
+       const userData = userDoc.docs.find(doc => doc.id === userID)?.data()
+       console.log("User data ", userData)
+       document.getElementById("introGreeting").innerHTML = "<h1> Welcome " + userData.FirstName + " to Song Connosseiur!</h1>"
+    } 
+    
+    catch (error) {
+        console.log(Error)    
+    }
+}
+
+onAuthStateChanged(auth, async(user) => {
+    if(user) {
+        console.log("Logged in user: ", user.email)
+        await fetchUserData(user.uid)
+    }
+
+    else {
+        console.log("No user signed in.")
+    }
+})
 
 export async function signUp(firstName, lastName, email, password) {
     try {

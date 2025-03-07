@@ -5,7 +5,8 @@ module.exports = {
     entry: {
         index: './src/index.js',
         auth: './src/auth.js',
-        config: './src/firebase.js'
+        config: './src/firebase.js',
+        songmanager: './src/songmanager.js'
     },
 
     output: {
